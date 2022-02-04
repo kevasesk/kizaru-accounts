@@ -1,8 +1,10 @@
 <?php
 
 try{
-    $login = isset($_GET['login']) ? trim(strip_tags($_GET['login'])) : null;
+    $login = isset($_GET['username']) ? trim(strip_tags($_GET['username'])) : null;
+    $login = preg_replace("/[^a-zA-Z0-9\s]/", '', $login);
     $password = isset($_GET['password']) ? trim(strip_tags($_GET['password'])) : null;
+    $login = preg_replace("/[^a-zA-Z0-9\s]/", '', $password);
 
     if(!$login || !$password){
         echo json_encode([
@@ -11,7 +13,7 @@ try{
         exit;
     }
 
-    $accounts = file_get_contents('accounts.json') ? json_decode(file_get_contents('accounts.json'), true) : [];
+    $accounts = file_get_contents('../accounts.json') ? json_decode(file_get_contents('../accounts.json'), true) : [];
     foreach ($accounts as $account){
         if($account['login'] == $login && $account['password'] == $password && $account['active']){
             echo json_encode([
