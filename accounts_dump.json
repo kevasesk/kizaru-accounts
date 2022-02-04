@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "login": "test1",
+    "password": "test1",
+    "active": true
+  },
+  {
+    "id": "2",
+    "login": "test2",
+    "password": "test2",
+    "active": false
+  },
+  {
+    "id": "3",
+    "login": "2345345",
+    "password": "tes4645756765t2",
+    "active": false
+  }
+]
