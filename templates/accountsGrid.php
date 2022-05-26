@@ -8,6 +8,7 @@ $accounts = file_get_contents('accounts.json') ? json_decode(file_get_contents('
             <th class="field">Login</th>
             <th class="field">Password</th>
             <th class="field">Is Active</th>
+            <th class="field">Login Count</th>
 
             <th>Add New</th>
             <th>Edit</th>
@@ -22,6 +23,7 @@ $accounts = file_get_contents('accounts.json') ? json_decode(file_get_contents('
             <td class="field"><?php echo $account['login'];?></td>
             <td class="field"><?php echo $account['password'];?></td>
             <td class="field"><?php echo $account['active'] ? 'Yes': 'No';?></td>
+            <td class="field"><?php echo count($account['machine']) ?? 0;?></td>
 
             <td><button type="button" class="btn btn-success" onclick="add();">Add New</button></td>
             <td><button type="button" class="btn btn-primary" onclick="edit(
